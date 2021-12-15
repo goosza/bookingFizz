@@ -6,8 +6,8 @@ plugins {
 }
 
 group = 'com.fizz'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+version '1.0-SNAPSHOT'
+
 
 repositories {
 	mavenCentral()
