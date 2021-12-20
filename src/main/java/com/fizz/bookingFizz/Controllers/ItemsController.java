@@ -2,9 +2,7 @@ package com.fizz.bookingFizz.Controllers;
 
 import com.fizz.bookingFizz.Domain.Item;
 import com.fizz.bookingFizz.business.FileUploadUtil;
-import com.fizz.bookingFizz.business.ItemService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import com.fizz.bookingFizz.business.services.ItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileSystemUtils;
@@ -15,7 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class ItemsController {

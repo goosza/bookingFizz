@@ -1,9 +1,8 @@
-package com.fizz.bookingFizz.business;
+package com.fizz.bookingFizz.business.services;
 
-import com.fizz.bookingFizz.Domain.Item;
 import com.fizz.bookingFizz.Domain.LocalEvent;
-import com.fizz.bookingFizz.Repositories.ItemRepository;
 import com.fizz.bookingFizz.Repositories.LocalEventRepository;
+import com.fizz.bookingFizz.business.services.LocalEventService;
 import com.fizz.bookingFizz.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
-public class LocalEventServiceImpl implements LocalEventService{
+public class LocalEventServiceImpl implements LocalEventService {
     private LocalEventRepository localEventRepository;
     public LocalEventServiceImpl(LocalEventRepository localEventRepository) {
         this.localEventRepository = localEventRepository;

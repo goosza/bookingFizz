@@ -1,4 +1,4 @@
-package com.fizz.bookingFizz.business;
+package com.fizz.bookingFizz.business.services;
 
 import com.fizz.bookingFizz.Domain.User;
 import com.fizz.bookingFizz.Dto.UserRegistrationDto;

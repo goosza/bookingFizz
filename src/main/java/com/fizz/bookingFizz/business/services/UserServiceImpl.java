@@ -1,10 +1,11 @@
-package com.fizz.bookingFizz.business;
+package com.fizz.bookingFizz.business.services;
 
 import com.fizz.bookingFizz.Domain.User;
 import com.fizz.bookingFizz.Domain.UserRole;
 import com.fizz.bookingFizz.Dto.UserRegistrationDto;
 import com.fizz.bookingFizz.Repositories.RoleRepository;
 import com.fizz.bookingFizz.Repositories.UserRepository;
+import com.fizz.bookingFizz.business.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

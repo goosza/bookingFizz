@@ -1,15 +1,15 @@
-package com.fizz.bookingFizz.business;
+package com.fizz.bookingFizz.business.services;
 
 import com.fizz.bookingFizz.Domain.Item;
 import com.fizz.bookingFizz.Repositories.ItemRepository;
+import com.fizz.bookingFizz.business.services.ItemService;
 import com.fizz.bookingFizz.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class ItemServiceImpl implements ItemService{
+public class ItemServiceImpl implements ItemService {
     private ItemRepository itemRepository;
 
     public ItemServiceImpl(ItemRepository itemRepository) {
