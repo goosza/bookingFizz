@@ -1,5 +1,7 @@
 package com.fizz.bookingFizz.Domain;
 
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "User", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
-public class User {
+public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -29,9 +31,9 @@ public class User {
             )
     )
     private Collection<UserRole> roles;
-    @OneToMany
-    @JoinColumn(name = "user_id")
-    private List<ItemBooking> itemBookings = new ArrayList<>();
+//    @OneToMany
+//    @JoinColumn(name = "user_id")
+//    private List<ItemBooking> itemBookings = new ArrayList<>();
 
     public User() {
 
@@ -93,11 +95,11 @@ public class User {
         this.roles = roles;
     }
 
-    public List<ItemBooking> getItemBookings() {
-        return itemBookings;
-    }
-
-    public void setItemBookings(List<ItemBooking> itemBookings) {
-        this.itemBookings = itemBookings;
-    }
+//    public List<ItemBooking> getItemBookings() {
+//        return itemBookings;
+//    }
+//
+//    public void setItemBookings(List<ItemBooking> itemBookings) {
+//        this.itemBookings = itemBookings;
+//    }
 }

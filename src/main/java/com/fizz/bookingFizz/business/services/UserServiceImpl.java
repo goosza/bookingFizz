@@ -5,8 +5,8 @@ import com.fizz.bookingFizz.Domain.UserRole;
 import com.fizz.bookingFizz.Dto.UserRegistrationDto;
 import com.fizz.bookingFizz.Repositories.RoleRepository;
 import com.fizz.bookingFizz.Repositories.UserRepository;
-import com.fizz.bookingFizz.business.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -39,7 +39,15 @@ public class  UserServiceImpl implements UserService {
         userRepository.save(user);
         return user;
     }
-
+    @Override
+    public User getCurrentlyLoggedInUser(Authentication authentication){
+        if (authentication == null ) return null;
+        User user = null;
+        Object principal = authentication.getPrincipal();
+        user = (User) principal;
+        System.out.println(user.getId());
+        return user;
+    }
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(username);

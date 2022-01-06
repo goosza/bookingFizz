@@ -1,10 +1,15 @@
 package com.fizz.bookingFizz.Dto;
 
+import com.fizz.bookingFizz.Domain.User;
+import com.fizz.bookingFizz.Repositories.UserRepository;
+
 public class UserRegistrationDto {
     private String firstName;
     private String lastName;
     private String email;
     private String password;
+
+    private UserRepository userRepository;
 
     public UserRegistrationDto() {
     }
@@ -46,5 +51,9 @@ public class UserRegistrationDto {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public User getUser() {
+        return userRepository.findByEmail(email);
     }
 }
