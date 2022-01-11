@@ -1,7 +1,6 @@
 package com.fizz.bookingFizz.repositoryTests;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import com.fizz.bookingFizz.Domain.Item;
 import com.fizz.bookingFizz.Domain.ItemBooking;
 import com.fizz.bookingFizz.Domain.User;
 import com.fizz.bookingFizz.Repositories.ItemBookingRepository;
@@ -9,11 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.annotation.Rollback;
 
-import java.time.LocalDateTime;
-import java.time.Month;
 import java.util.List;
 
 @DataJpaTest

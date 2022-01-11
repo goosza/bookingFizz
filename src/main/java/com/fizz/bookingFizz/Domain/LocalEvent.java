@@ -20,7 +20,7 @@ public class LocalEvent {
 
     private String billboardPath;
     private String description;
-
+    private int capacity;
 
     public LocalEvent(String name, LocalDateTime datefrom, LocalDateTime dateto, String billboardPath, String description) {
         this.name = name;
