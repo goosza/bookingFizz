@@ -1,8 +1,7 @@
 package com.fizz.bookingFizz.business.services;
 
-import com.fizz.bookingFizz.Domain.Item;
-import com.fizz.bookingFizz.Repositories.ItemRepository;
-import com.fizz.bookingFizz.business.services.ItemService;
+import com.fizz.bookingFizz.domain.Item;
+import com.fizz.bookingFizz.repositories.ItemRepository;
 import com.fizz.bookingFizz.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,6 @@
-package com.fizz.bookingFizz.Controllers;
+package com.fizz.bookingFizz.controllers;
 
-import com.fizz.bookingFizz.Domain.ItemBooking;
-import com.fizz.bookingFizz.Domain.SignedUpLocalEvent;
+import com.fizz.bookingFizz.domain.SignedUpLocalEvent;
 import com.fizz.bookingFizz.business.CustomUserDetails;
 import com.fizz.bookingFizz.business.services.LocalEventSignUpService;
 import com.fizz.bookingFizz.business.services.UserService;
@@ -26,7 +25,7 @@ public class SignedUpLocalEventsController {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<SignedUpLocalEvent> listSignedUpLocalEvents =
                 localEventSignUpService.listSignedUpLocalEvents(((CustomUserDetails)principal).getUser());
-        model.addAttribute("itemBookings", listSignedUpLocalEvents);
+        model.addAttribute("listSignedUpLocalEvents", listSignedUpLocalEvents);
         return "profile";
     }
 }

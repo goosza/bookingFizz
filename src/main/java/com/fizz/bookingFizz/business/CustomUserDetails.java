@@ -1,7 +1,7 @@
 package com.fizz.bookingFizz.business;
 
-import com.fizz.bookingFizz.Domain.User;
-import com.fizz.bookingFizz.Domain.UserRole;
+import com.fizz.bookingFizz.domain.User;
+import com.fizz.bookingFizz.domain.UserRole;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

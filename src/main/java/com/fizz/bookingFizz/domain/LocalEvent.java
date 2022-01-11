@@ -1,10 +1,11 @@
-package com.fizz.bookingFizz.Domain;
+package com.fizz.bookingFizz.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
-import java.sql.Time;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class LocalEvent {
@@ -21,13 +22,20 @@ public class LocalEvent {
     private String billboardPath;
     private String description;
     private int capacity;
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JoinColumn(name = "localevent_id")
+    private List<User> signedupUsers = new ArrayList<>();
 
-    public LocalEvent(String name, LocalDateTime datefrom, LocalDateTime dateto, String billboardPath, String description) {
+    public LocalEvent(String name, LocalDateTime datefrom, LocalDateTime dateto, String billboardPath, String description, int capacity) {
         this.name = name;
         this.datefrom = datefrom;
         this.dateto = dateto;
         this.billboardPath = billboardPath;
         this.description = description;
+        this.capacity = capacity;
     }
 
     public LocalEvent() {
@@ -87,5 +95,21 @@ public class LocalEvent {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public List<User> getSignedupUsers() {
+        return signedupUsers;
+    }
+
+    public void setSignedupUsers(List<User> signedupUsers) {
+        this.signedupUsers = signedupUsers;
     }
 }

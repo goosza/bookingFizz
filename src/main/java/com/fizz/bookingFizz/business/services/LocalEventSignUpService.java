@@ -1,8 +1,7 @@
 package com.fizz.bookingFizz.business.services;
 
-import com.fizz.bookingFizz.Domain.ItemBooking;
-import com.fizz.bookingFizz.Domain.SignedUpLocalEvent;
-import com.fizz.bookingFizz.Domain.User;
+import com.fizz.bookingFizz.domain.SignedUpLocalEvent;
+import com.fizz.bookingFizz.domain.User;
 
 import java.util.List;
 

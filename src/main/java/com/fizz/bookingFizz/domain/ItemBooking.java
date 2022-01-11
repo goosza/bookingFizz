@@ -1,4 +1,4 @@
-package com.fizz.bookingFizz.Domain;
+package com.fizz.bookingFizz.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

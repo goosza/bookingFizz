@@ -1,6 +1,6 @@
-package com.fizz.bookingFizz.Controllers;
+package com.fizz.bookingFizz.controllers;
 
-import com.fizz.bookingFizz.Domain.Item;
+import com.fizz.bookingFizz.domain.Item;
 import com.fizz.bookingFizz.business.FileUploadUtil;
 import com.fizz.bookingFizz.business.services.ItemService;
 import org.springframework.stereotype.Controller;
@@ -17,21 +17,19 @@ import java.util.List;
 @Controller
 public class ItemsController {
 
-
     private ItemService itemService;
+
     public ItemsController(ItemService itemService) {
         this.itemService = itemService;
     }
-//    @PostMapping
-//    public ResponseEntity<Item> saveItem(@RequestBody Item item){
-//        return new ResponseEntity<Item>(itemService.saveItem(item), HttpStatus.CREATED);
-//    }
+
     @GetMapping("/items")
     public String itemsMain(Model model){
         List<Item> items = itemService.getAllItems();
         model.addAttribute("items", items);
         return "items";
     }
+
     @GetMapping("/items/add")
     public String addItem(Model model){
         return "addItem";
@@ -46,6 +44,7 @@ public class ItemsController {
         FileUploadUtil.saveFile(uploadDir, fileName, image);
         return "redirect:/items";
     }
+
     @RequestMapping("/items/getOne")
     @ResponseBody
     public Item getOne(Long id){

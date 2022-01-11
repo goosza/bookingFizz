@@ -1,6 +1,6 @@
 package com.fizz.bookingFizz.business.services;
 
-import com.fizz.bookingFizz.Domain.Item;
+import com.fizz.bookingFizz.domain.Item;
 
 import java.util.List;
 

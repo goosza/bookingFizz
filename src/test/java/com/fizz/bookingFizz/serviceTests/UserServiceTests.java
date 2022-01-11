@@ -1,10 +1,9 @@
 package com.fizz.bookingFizz.serviceTests;
 
-import com.fizz.bookingFizz.Domain.User;
-import com.fizz.bookingFizz.Dto.UserRegistrationDto;
-import com.fizz.bookingFizz.Repositories.RoleRepository;
-import com.fizz.bookingFizz.Repositories.UserRepository;
-import com.fizz.bookingFizz.business.services.UserService;
+import com.fizz.bookingFizz.domain.User;
+import com.fizz.bookingFizz.dto.UserRegistrationDto;
+import com.fizz.bookingFizz.repositories.RoleRepository;
+import com.fizz.bookingFizz.repositories.UserRepository;
 import com.fizz.bookingFizz.business.services.UserServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,24 +11,12 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.Assert;
 
 
 import java.util.Arrays;
-import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.when;
 
 

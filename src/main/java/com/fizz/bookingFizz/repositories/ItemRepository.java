@@ -1,6 +1,6 @@
-package com.fizz.bookingFizz.Repositories;
+package com.fizz.bookingFizz.repositories;
 
-import com.fizz.bookingFizz.Domain.Item;
+import com.fizz.bookingFizz.domain.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

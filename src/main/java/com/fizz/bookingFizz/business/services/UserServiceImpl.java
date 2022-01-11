@@ -1,9 +1,9 @@
 package com.fizz.bookingFizz.business.services;
 
-import com.fizz.bookingFizz.Domain.User;
-import com.fizz.bookingFizz.Dto.UserRegistrationDto;
-import com.fizz.bookingFizz.Repositories.RoleRepository;
-import com.fizz.bookingFizz.Repositories.UserRepository;
+import com.fizz.bookingFizz.domain.User;
+import com.fizz.bookingFizz.dto.UserRegistrationDto;
+import com.fizz.bookingFizz.repositories.RoleRepository;
+import com.fizz.bookingFizz.repositories.UserRepository;
 import com.fizz.bookingFizz.business.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

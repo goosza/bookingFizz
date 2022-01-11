@@ -1,8 +1,8 @@
 package com.fizz.bookingFizz.repositoryTests;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import com.fizz.bookingFizz.Domain.User;
-import com.fizz.bookingFizz.Repositories.UserRepository;
+import com.fizz.bookingFizz.domain.User;
+import com.fizz.bookingFizz.repositories.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;

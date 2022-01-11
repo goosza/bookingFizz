@@ -1,8 +1,6 @@
-package com.fizz.bookingFizz.Domain;
+package com.fizz.bookingFizz.domain;
 
 import javax.persistence.*;
-import java.io.File;
-import java.nio.file.Path;
 
 @Entity
 public class Item {

@@ -1,11 +1,7 @@
-package com.fizz.bookingFizz.Domain;
-
-import org.springframework.security.core.userdetails.UserDetails;
+package com.fizz.bookingFizz.domain;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 @Entity
 @Table(name = "User", uniqueConstraints = @UniqueConstraint(columnNames = "email"))

@@ -1,6 +1,6 @@
-package com.fizz.bookingFizz.Controllers;
+package com.fizz.bookingFizz.controllers;
 
-import com.fizz.bookingFizz.Domain.LocalEvent;
+import com.fizz.bookingFizz.domain.LocalEvent;
 import com.fizz.bookingFizz.business.FileUploadUtil;
 import com.fizz.bookingFizz.business.services.LocalEventService;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -30,31 +30,36 @@ public class LocalEventsController {
         model.addAttribute("localEvents", localEvents);
         return "localevents";
     }
+
     @GetMapping("/localevents/add")
     public String addLocalEvent(Model model){
         return "addLocalEvent";
     }
+
     @PostMapping("/localevents/add")
-    public String addNewLocalEvent(@RequestParam String name, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    public String addNewLocalEvent(@RequestParam String name, @RequestParam int capacity, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
             LocalDateTime datefrom, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dateto,
                                    @RequestParam MultipartFile image, @RequestParam String description) throws IOException {
         String fileName = StringUtils.cleanPath(image.getOriginalFilename());
-        LocalEvent savedLocalEvent = localEventService.saveLocalEvent(new LocalEvent(name, datefrom, dateto, fileName, description));
+        LocalEvent savedLocalEvent = localEventService.saveLocalEvent(new LocalEvent(name, datefrom, dateto, fileName, description, capacity));
         String uploadDir = "localEvents-photos/" + savedLocalEvent.getId();
         FileUploadUtil.saveFile(uploadDir, fileName, image);
         return "redirect:/localevents";
     }
+
     @RequestMapping("/localevents/getOne")
     @ResponseBody
     public LocalEvent getOne(Long id){
         return localEventService.getLocalEventId(id);
     }
+
     @RequestMapping (value = "/localevents/edit", method = {RequestMethod.PUT, RequestMethod.GET})
-    public String changeItem(Long id, String newName, String newDescription, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    public String changeItem(Long id, String newName, int capacity, String newDescription, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
             LocalDateTime newDateFrom, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime newDateTo){
-        localEventService.updateItem(id, newName, newDescription, newDateFrom, newDateTo);
+        localEventService.updateItem(id, newName, newDescription, newDateFrom, newDateTo, capacity);
         return "redirect:/localevents";
     }
+
     @PostMapping("/localevents/{id}/remove")
     public String removeItem(@PathVariable(value = "id") Long id){
         File file = new File("localEvents-photos/" + id);

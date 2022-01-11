@@ -1,7 +1,7 @@
-package com.fizz.bookingFizz.Dto;
+package com.fizz.bookingFizz.dto;
 
-import com.fizz.bookingFizz.Domain.User;
-import com.fizz.bookingFizz.Repositories.UserRepository;
+import com.fizz.bookingFizz.domain.User;
+import com.fizz.bookingFizz.repositories.UserRepository;
 
 public class UserRegistrationDto {
     private String firstName;

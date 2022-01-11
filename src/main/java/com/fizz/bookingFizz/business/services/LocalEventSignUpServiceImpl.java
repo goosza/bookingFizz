@@ -1,9 +1,8 @@
 package com.fizz.bookingFizz.business.services;
 
-import com.fizz.bookingFizz.Domain.ItemBooking;
-import com.fizz.bookingFizz.Domain.SignedUpLocalEvent;
-import com.fizz.bookingFizz.Domain.User;
-import com.fizz.bookingFizz.Repositories.SignedUpLocalEventRepository;
+import com.fizz.bookingFizz.domain.SignedUpLocalEvent;
+import com.fizz.bookingFizz.domain.User;
+import com.fizz.bookingFizz.repositories.SignedUpLocalEventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,8 +1,7 @@
 package com.fizz.bookingFizz.business.services;
 
-import com.fizz.bookingFizz.Domain.LocalEvent;
-import com.fizz.bookingFizz.Repositories.LocalEventRepository;
-import com.fizz.bookingFizz.business.services.LocalEventService;
+import com.fizz.bookingFizz.domain.LocalEvent;
+import com.fizz.bookingFizz.repositories.LocalEventRepository;
 import com.fizz.bookingFizz.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +32,8 @@ public class LocalEventServiceImpl implements LocalEventService {
     }
 
     @Override
-    public LocalEvent updateItem(Long id, String name, String description, LocalDateTime datefrom, LocalDateTime dateto) {
+    public LocalEvent updateItem(Long id, String name, String description,
+                                 LocalDateTime datefrom, LocalDateTime dateto, int capacity) {
         LocalEvent existingEvent = localEventRepository.findById(id).orElseThrow(() ->
                 new ResourceNotFoundException("Item", "Id", id));
         existingEvent.setName(name);

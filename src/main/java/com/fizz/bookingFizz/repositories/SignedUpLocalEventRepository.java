@@ -1,7 +1,7 @@
-package com.fizz.bookingFizz.Repositories;
+package com.fizz.bookingFizz.repositories;
 
-import com.fizz.bookingFizz.Domain.SignedUpLocalEvent;
-import com.fizz.bookingFizz.Domain.User;
+import com.fizz.bookingFizz.domain.SignedUpLocalEvent;
+import com.fizz.bookingFizz.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
