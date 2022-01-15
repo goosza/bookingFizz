@@ -1,7 +1,7 @@
 package com.fizz.bookingFizz.business.services;
 
 import com.fizz.bookingFizz.domain.User;
-import com.fizz.bookingFizz.dto.UserRegistrationDto;
+import com.fizz.bookingFizz.pojo.UserRegistrationDto;
 import com.fizz.bookingFizz.repositories.RoleRepository;
 import com.fizz.bookingFizz.repositories.UserRepository;
 import com.fizz.bookingFizz.business.CustomUserDetails;
@@ -12,10 +12,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 @Service
 public class UserServiceImpl implements UserService {
 
+    @Autowired
     private UserRepository userRepository;
     @Autowired
     private RoleRepository roleRepository;
@@ -32,7 +34,7 @@ public class UserServiceImpl implements UserService {
     public User save(UserRegistrationDto registrationDto) {
         User user = new User(registrationDto.getFirstName(), registrationDto.getLastName(),
                 registrationDto.getEmail(), passwordEncoder.encode(registrationDto.getPassword()),
-                Arrays.asList(roleRepository.getById(1L)));
+                new HashSet<>(Arrays.asList(roleRepository.getById(1L))));
         userRepository.save(user);
         return user;
     }

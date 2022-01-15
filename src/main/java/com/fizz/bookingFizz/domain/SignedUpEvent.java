@@ -3,16 +3,25 @@ package com.fizz.bookingFizz.domain;
 import javax.persistence.*;
 
 @Entity
-public class SignedUpLocalEvent {
+public class SignedUpEvent {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "localevent_id")
+    @JoinColumn(name = "local_event_id")
     private LocalEvent localEvent;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    public SignedUpEvent(LocalEvent localEvent, User user) {
+        this.localEvent = localEvent;
+        this.user = user;
+    }
+
+    public SignedUpEvent() {
+
+    }
 
     public Long getId() {
         return id;

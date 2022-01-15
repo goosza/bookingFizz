@@ -9,6 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -18,18 +19,14 @@ public class ItemBookingController {
     @Autowired
     private ItemBookingService itemBookingService;
 
-    @Autowired
-    private UserService userService;
 
-    @GetMapping("/profile")
-    public String showProfileBookings(Model model){
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        List<ItemBooking> listItemBookings = itemBookingService.listItemBookings(((CustomUserDetails)principal).getUser());
-        model.addAttribute("itemBookings", listItemBookings);
-        return "profile";
+    public ItemBookingController(ItemBookingService itemBookingService) {
+        this.itemBookingService = itemBookingService;
     }
-//     @PostMapping("/items/reservation")
-//    public String addNewReservation(@RequestParam  @RequestParam String name,
+
+
+//    @PostMapping("/items/reservation")
+//    public String addNewReservation(@RequestParam @RequestParam String name,
 //                                    @RequestParam int quantity) throws IOException {
 //
 //    }

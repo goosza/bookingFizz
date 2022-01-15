@@ -1,4 +1,4 @@
-package com.fizz.bookingFizz.dto;
+package com.fizz.bookingFizz.pojo;
 
 import com.fizz.bookingFizz.domain.User;
 import com.fizz.bookingFizz.repositories.UserRepository;

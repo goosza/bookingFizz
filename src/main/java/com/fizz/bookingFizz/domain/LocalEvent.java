@@ -26,7 +26,7 @@ public class LocalEvent {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    @JoinColumn(name = "localevent_id")
+    @JoinColumn(name = "local_event_id")
     private List<User> signedupUsers = new ArrayList<>();
 
     public LocalEvent(String name, LocalDateTime datefrom, LocalDateTime dateto, String billboardPath, String description, int capacity) {

@@ -54,9 +54,9 @@ public class LocalEventsController {
     }
 
     @RequestMapping (value = "/localevents/edit", method = {RequestMethod.PUT, RequestMethod.GET})
-    public String changeItem(Long id, String newName, int capacity, String newDescription, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    public String changeItem(Long id, String newName, int newCapacity, String newDescription, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
             LocalDateTime newDateFrom, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime newDateTo){
-        localEventService.updateItem(id, newName, newDescription, newDateFrom, newDateTo, capacity);
+        localEventService.updateItem(id, newName, newDescription, newDateFrom, newDateTo, newCapacity);
         return "redirect:/localevents";
     }
 

@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>LOCAL EVENTS</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -92,7 +93,7 @@
     <div class="container mt-5">
         <div>
             <h1>LOCAL EVENTS</h1>
-            <a href="/localevents/add" class="btn btn-primary">Add</a>
+            <a href="/localevents/add" sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary">Add</a>
         </div>
         <br>
         <div th:each="el : ${localEvents}">
@@ -100,11 +101,14 @@
                 <div class="event-container">
                     <h1 class="fizz" th:text = "${el.name}"></h1>
                     <h2 class="fizz-h2" th:text = "${el.description}"></h2>
-                    <a class="register-event" href="#">Register now</a>
-                    <a th:href="@{/localevents/getOne/(id=${el.id})}" class="btn btn-primary">
+                    <h2 class="fizz-h2" th:text = "'CAPACITY: ' + ${el.capacity}"></h2>
+                    <form th:action="'/localevents/' + ${el.id} + '/signingup'" method="post">
+                        <button type="submit" class="register-event">Register now</button>
+                    </form>
+                    <a th:href="@{/localevents/getOne/(id=${el.id})}" sec:authorize ="hasAuthority('ADMIN')" class="btn btn-primary">
                         Edit
                     </a>
-                    <form th:action="'/localevents/' + ${el.id} + '/remove'" method="post">
+                    <form th:action="'/localevents/' + ${el.id} + '/remove'" sec:authorize ="hasAuthority('ADMIN')" method="post">
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </div>
@@ -129,6 +133,9 @@
                                 </div>
                                 <div class="input-group mb-3">
                                     <input type="text" name="newName" id="newName" class="form-control" placeholder="name" aria-label="name" aria-describedby="basic-addon1">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input type="number" name="newCapacity" id="newCapacity" class="form-control" placeholder="newCapacity" aria-label="newCapacity" aria-describedby="basic-addon1">
                                 </div>
                                 <div class="input-group mb-3">
                                     <input type="datetime-local" th:value="${el.datefrom}" name="newDateFrom" id="newDateFrom" class="form-control" placeholder="newDateFrom" aria-label="newDateFrom" aria-describedby="basic-addon1">

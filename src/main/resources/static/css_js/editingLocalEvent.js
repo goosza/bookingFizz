@@ -5,6 +5,7 @@ $('document').ready(function (){
         $.get(href, function (localevent, status){
             $('#Id').val(localevent.id);
             $('#newName').val(localevent.name);
+            $('#newCapacity').val(localevent.capacity);
             //$('#newDateFrom').val($.format.date(localevent.datefrom, "dd-MM-yyyy HH:mm"));
             //$('#newDateTo').val($.format.date(localevent.dateto, "dd-MM-yyyy HH:mm"));
             $('#newDescription').val(localevent.description);

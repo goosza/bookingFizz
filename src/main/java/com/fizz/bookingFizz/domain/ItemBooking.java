@@ -21,6 +21,17 @@ public class ItemBooking {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
     private LocalDateTime validTo;
 
+    public ItemBooking(Item item, User user, LocalDateTime validFrom, LocalDateTime validTo) {
+        this.item = item;
+        this.user = user;
+        this.validFrom = validFrom;
+        this.validTo = validTo;
+    }
+
+    public ItemBooking() {
+
+    }
+
     public Long getId() {
         return id;
     }

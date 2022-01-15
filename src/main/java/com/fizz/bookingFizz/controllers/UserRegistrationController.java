@@ -1,6 +1,6 @@
 package com.fizz.bookingFizz.controllers;
 
-import com.fizz.bookingFizz.dto.UserRegistrationDto;
+import com.fizz.bookingFizz.pojo.UserRegistrationDto;
 import com.fizz.bookingFizz.business.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

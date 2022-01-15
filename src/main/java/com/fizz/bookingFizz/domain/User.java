@@ -2,6 +2,8 @@ package com.fizz.bookingFizz.domain;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "User", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
@@ -26,14 +28,14 @@ public class User{
                         name = "role_id", referencedColumnName = "id"
             )
     )
-    private Collection<UserRole> roles;
+    private Set<UserRole> roles = new HashSet<>();
 
 
     public User() {
 
     }
 
-    public User(String firstname, String lastName, String email, String password, Collection<UserRole> roles) {
+    public User(String firstname, String lastName, String email, String password, Set<UserRole> roles) {
         this.firstname = firstname;
         this.lastName = lastName;
         this.email = email;
@@ -81,11 +83,11 @@ public class User{
         this.password = password;
     }
 
-    public Collection<UserRole> getRoles() {
+    public Set<UserRole> getRoles() {
         return roles;
     }
 
-    public void setRoles(Collection<UserRole> roles) {
+    public void setRoles(Set<UserRole> roles) {
         this.roles = roles;
     }
 

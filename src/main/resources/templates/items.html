@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>ITEMS</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -15,7 +16,7 @@
     <div class="container mt-5">
         <div>
             <h1>ITEMS</h1>
-            <a href="/items/add" class="btn btn-primary">Add</a>
+            <a href="/items/add" sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary">Add</a>
         </div>
         <br>
         <div class="row row-cols-5 row-cols-md-4 g-4">
@@ -27,12 +28,14 @@
                         <p th:text = "'Quantity: ' + ${el.quantity}" class="card-text"></p>
                         <a href="#" class="btn btn-success">Book</a>
                         <!-- Button trigger modal -->
-                        <a th:href="@{/items/getOne/(id=${el.id})}" class="btn btn-primary">
-                            Edit
-                        </a>
-                        <form th:action="'/items/' + ${el.id} + '/remove'" method="post">
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
+                        <div sec:authorize="hasAuthority('ADMIN')">
+                            <a th:href="@{/items/getOne/(id=${el.id})}" class="btn btn-primary">
+                                Edit
+                            </a>
+                            <form th:action="'/items/' + ${el.id} + '/remove'" method="post">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
