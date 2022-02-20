@@ -23,10 +23,6 @@ public class SignedUpEventServiceImpl implements SignedUpEventService {
         return signedUpEventRepository.save(signedUpEvent);
     }
 
-    @Override
-    public List<SignedUpEvent> getAllSignedUpLocalEvents() {
-        return signedUpEventRepository.findAll();
-    }
 
     @Override
     public List<SignedUpEvent> listSignedUpLocalEvents(User user) {
@@ -36,11 +32,6 @@ public class SignedUpEventServiceImpl implements SignedUpEventService {
     @Override
     public SignedUpEvent findByUserAndLocalEvent(User user, LocalEvent localEvent) {
         return signedUpEventRepository.findByUserAndLocalEvent(user, localEvent);
-    }
-
-    @Override
-    public SignedUpEvent getSignedUpLocalEventId(Long id) {
-        return signedUpEventRepository.getById(id);
     }
 
     @Override

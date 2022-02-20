@@ -3,6 +3,7 @@ package com.fizz.bookingFizz.domain;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -16,16 +17,13 @@ public class ItemBooking {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
-    private LocalDateTime validFrom;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
-    private LocalDateTime validTo;
+    @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
+    private LocalDate date;
 
-    public ItemBooking(Item item, User user, LocalDateTime validFrom, LocalDateTime validTo) {
+    public ItemBooking(Item item, User user, LocalDate date) {
         this.item = item;
         this.user = user;
-        this.validFrom = validFrom;
-        this.validTo = validTo;
+        this.date = date;
     }
 
     public ItemBooking() {
@@ -56,19 +54,12 @@ public class ItemBooking {
         this.user = user;
     }
 
-    public LocalDateTime getValidFrom() {
-        return validFrom;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setValidFrom(LocalDateTime validFrom) {
-        this.validFrom = validFrom;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
-    public LocalDateTime getValidTo() {
-        return validTo;
-    }
-
-    public void setValidTo(LocalDateTime validTo) {
-        this.validTo = validTo;
-    }
 }
